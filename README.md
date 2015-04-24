@@ -9,18 +9,16 @@ It is recommended that you run this with [```gunicorn```](http://gunicorn.org/).
 
 ##### ```POST /addjob```
 - ```url``` - The URL that you want to scrap
-
-Possible responses
-- ```200 OK``` - This means that your job was created successfully. The response data will contain a ```job-id``` which should be used for future reference to get the results of the scrap.
-- ```400 Bad Request``` - The URL parameter was not given in the request made.
+- Responses
+  - ```200 OK``` - This means that your job was created successfully. The response data will contain a ```job-id``` which should be used for future reference to get the results of the scrap.
+  - ```400 Bad Request``` - The URL parameter was not given in the request made.
 
 ##### ```GET /job/{job-id}```
 - ```job-id``` - The job ID associated with the job
-
-Responses
-- ```200 OK``` - This is the only response possible, but there are two possible outcomes:
-  - Response data contains ```status```. This means that your job is still processing. ```status``` can be either ```IN_PROGRESS``` or ```INCOMPLETE```.
-  - Response data contains ```result```. This means your job has completed and the web page was scraped successfully, with the response of that webpage returned as ```result``` in the response from talons.
+- Responses
+  - ```200 OK``` - This is the only response possible, but there are two possible outcomes:
+    - Response data contains ```status```. This means that your job is still processing. ```status``` can be either ```IN_PROGRESS``` or ```INCOMPLETE```.
+    - Response data contains ```result```. This means your job has completed and the web page was scraped successfully, with the response of that webpage returned as ```result``` in the response from talons.
 
 #### Example run
 
